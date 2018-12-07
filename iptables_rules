@@ -1,0 +1,3 @@
+#!/bin/bash
+
+iptables -t nat -A PREROUTING -i usb0 -p tcp --dport 80 -j DNAT --to-destination 10.0.3.73:80

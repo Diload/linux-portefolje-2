@@ -1,0 +1,4 @@
+#!/bin/bash
+
+lxc-start -n C1
+lxc-start -n C2
