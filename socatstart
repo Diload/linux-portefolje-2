@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+command="/usr/bin/socat"
+command_args="-v -v tcp-listen:8080,fork,reuseaddr exec:/bin/rng.sh"
+pidfile="/run/$RC_SVCNAME/$RC_SVCNAME.pid"
+command_background="yes"
+
+
+start_pre() {
+        checkpath --directory --owner $command_user:$command_user --mode 0775 \
+                /run/$RC_SVCNAME /var/log/$RC_SVCNAME
+}
